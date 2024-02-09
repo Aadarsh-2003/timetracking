@@ -11,18 +11,21 @@ import jakarta.persistence.Table;
 public class TechnologyEntity {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer TechnologyId;
-	private String Title;
+	private Integer technologyId;
+	private String title;
 	public Integer getTechnologyId() {
-		return TechnologyId;
+		return technologyId;
 	}
 	public void setTechnologyId(Integer technologyId) {
-		TechnologyId = technologyId;
+		this.technologyId = technologyId;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
+	
+	
+	
 }

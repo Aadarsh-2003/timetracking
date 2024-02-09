@@ -10,99 +10,123 @@ import jakarta.persistence.Table;
 @Table(name = "Users")
 public class UsersEntity {
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
-	private String FirstName1;
-	private String LastName;
-	private String Email;
-	private String Password;
-	private String Gender;
-	private Integer ContactNumber;
-	private Integer DOB;
-	private String Address;
-	private String City;
-	private String State;
-	private Integer OTP;
-	private String roleId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+	private String gender;
+	private String contactNumber;
+	private String dob;
+	private String address;
+	private String city;
+	private String state;
+	private Integer otp;
+	private Integer roleId;
+
 	public Integer getUserId() {
 		return userId;
 	}
+
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public String getFirstName1() {
-		return FirstName1;
+
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstName1(String firstName1) {
-		FirstName1 = firstName1;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
+
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
+
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
+
 	public String getEmail() {
-		return Email;
+		return email;
 	}
+
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
+
 	public String getPassword() {
-		return Password;
+		return password;
 	}
+
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
+
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
+
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
-	public Integer getContactNumber() {
-		return ContactNumber;
+
+	public String getContactNumber() {
+		return contactNumber;
 	}
-	public void setContactNumber(Integer contactNumber) {
-		ContactNumber = contactNumber;
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
-	public Integer getDOB() {
-		return DOB;
+
+	public String getDob() {
+		return dob;
 	}
-	public void setDOB(Integer dOB) {
-		DOB = dOB;
+
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
+
 	public String getAddress() {
-		return Address;
+		return address;
 	}
+
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
+
 	public String getCity() {
-		return City;
+		return city;
 	}
+
 	public void setCity(String city) {
-		City = city;
+		this.city = city;
 	}
+
 	public String getState() {
-		return State;
+		return state;
 	}
+
 	public void setState(String state) {
-		State = state;
+		this.state = state;
 	}
-	public Integer getOTP() {
-		return OTP;
+
+	public Integer getOtp() {
+		return otp;
 	}
-	public void setOTP(Integer oTP) {
-		OTP = oTP;
+
+	public void setOtp(Integer otp) {
+		this.otp = otp;
 	}
-	public String getRoleId() {
+
+	public Integer getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(String roleId) {
+
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
-	
 
-	
 }
