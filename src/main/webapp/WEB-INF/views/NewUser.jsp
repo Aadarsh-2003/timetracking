@@ -13,13 +13,25 @@
 	lastName:<input type="text" name="lastName"><br><br>
 	email:<input type="email" name="email"><br><br>
 	password:<input type="password" name="password"><br><br>
-	gender:<input type="text" name="gender"><br><br>
+	gender: Male<input type="radio" value="male" name="gender">
+			Female<input type="radio" value="female" name="gender"><br><br>
 	contactNumber:<input type="number" name="contactNumber"><br><br>
-	dob:<input type="text" name="dob"><br><br>
-	address:<input type="text" name="address"><br><br>
-	city:<input type="text" name="city"><br><br>
-	state:<input type="text" name="state"><br><br>
-	otp:<input type="number" name="otp"><br><br>
+	dob:<input type="date" name="dob"><br><br>
+	address:<textarea rows="5" cols="20" name="address" ></textarea>  <br><br>
+	
+	city:	<select name="city">
+				<option value="-1" >Select City</option>
+				<option value="ahmedabad" >Ahmedabad</option>
+				<option value="mumbai" >Mumbai</option>
+				<option value="pune" >Pune</option>
+			</select> <br><br>
+	state:<select name="state">
+				<option value="-1" >Select State</option>
+				<option value="gujarat" >Gujarat</option>
+				<option value="maharashtra" >Maharashtra</option>
+				<option value="mehsana" >Mehsana</option>
+			</select><br><br>
+	
 	roleId:<input type="text" name="roleId"><br><br>
 	<input type="submit" value="Submit User" >
 	</form>

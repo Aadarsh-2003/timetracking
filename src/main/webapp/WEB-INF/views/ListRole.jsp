@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +10,21 @@
 </head>
 <body>
 	<h2>List Role</h2>
-
 	${r.size()}
+	
+	<table border="1" align="center" >
+		<tr>
+			<th>Role Name</th>
+		</tr>
+		
+		<c:forEach items="${r}" var="role" >
+		<tr>
+			<th>${role.roleName}</th>
+		</tr>
+		
+		</c:forEach>
+	
+	</table>
 
 </body>
 </html>
