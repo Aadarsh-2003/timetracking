@@ -15,12 +15,14 @@
 	<table border="1" align="center" >
 		
 		<tr>
+			<th>Project Status Id</th>
 			<th>Project Status</th>
 		</tr>
 		
 		<c:forEach items="${prsts}" var="sts" >
 		<tr>
-			<th>${sts.status}</th>
+			<td>${sts.projectStatusId}</td>
+			<td>${sts.status}</td>
 		</tr>
 		
 		</c:forEach>

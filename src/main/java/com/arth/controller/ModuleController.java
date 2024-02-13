@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.arth.entity.ModuleEntity;
+import com.arth.entity.ProjectEntity;
+import com.arth.entity.ProjectStatusEntity;
 import com.arth.repository.ModuleRepository;
+import com.arth.repository.ProjectRepository;
+import com.arth.repository.ProjectStatusRepository;
 
 
 @Controller
@@ -19,8 +23,21 @@ public class ModuleController {
 	@Autowired
 	ModuleRepository moduleRepo;
 	
+	@Autowired
+	ProjectRepository prRepo; //for projectId
+	
+	@Autowired
+	ProjectStatusRepository prStsRepo; //for project status
+	
 	@GetMapping("/newmodule")
-	public String newModule() {
+	public String newModule(Model model) {
+		
+		List<ProjectEntity> prId = prRepo.findAll();
+		model.addAttribute("prId", prId);
+		
+		List<ProjectStatusEntity> prStatus = prStsRepo.findAll();
+		model.addAttribute("prStatus", prStatus);
+		
 		return"NewModule";
 	}
 	@PostMapping("/savemodule")

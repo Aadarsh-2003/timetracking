@@ -14,7 +14,7 @@ public class ProjectUserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer projectUserId;
 	private Integer userId;
-	private Integer taskId;
+	private Integer projectId;
 	private Integer assignStatus;
 
 	public Integer getProjectUserId() {
@@ -33,12 +33,12 @@ public class ProjectUserEntity {
 		this.userId = userId;
 	}
 
-	public Integer getTaskId() {
-		return taskId;
+	public Integer getProjectId() {
+		return projectId;
 	}
 
-	public void setTaskId(Integer taskId) {
-		this.taskId = taskId;
+	public void setProjectId(Integer projectId) {
+		this.projectId = projectId;
 	}
 
 	public Integer getAssignStatus() {

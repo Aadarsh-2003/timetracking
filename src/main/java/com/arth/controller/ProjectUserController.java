@@ -8,8 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.arth.entity.ProjectEntity;
 import com.arth.entity.ProjectUserEntity;
+import com.arth.entity.UsersEntity;
+import com.arth.repository.ProjectRepository;
 import com.arth.repository.ProjectUserRepository;
+import com.arth.repository.UsersRepository;
 
 @Controller
 public class ProjectUserController {
@@ -17,8 +21,21 @@ public class ProjectUserController {
 	@Autowired
 	ProjectUserRepository prUserRepo;
 	
+	@Autowired
+	ProjectRepository prRepo;
+	
+	@Autowired
+	UsersRepository urRepo;
+	
 	@GetMapping("/newprojectuser")
-	public String newProjectUser() {
+	public String newProjectUser(Model model) {
+		
+		List<ProjectEntity> projects = prRepo.findAll();
+		model.addAttribute("prj", projects);
+		
+		List<UsersEntity> userId = urRepo.findAll();
+		model.addAttribute("usrs", userId);
+		
 		return"NewProjectUser";
 	}
 	@PostMapping("/saveprojectuser")

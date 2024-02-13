@@ -16,6 +16,14 @@
 			<th>FirstName</th>
 			<th>LastName</th>
 			<th>Email</th>
+			<th>password</th>
+			<th>gender</th>
+			<th>contactNumber</th>
+			<th>dob</th>
+			<th>address</th>
+			<th>city</th>
+			<th>state</th>
+			<th>roleId</th>
 		</tr>
 		
 		<c:forEach items="${ur}" var="users">
@@ -23,6 +31,14 @@
 			<td>${users.firstName}</td>
 			<td>${users.lastName}</td>
 			<td>${users.email}</td>
+			<td>${users.password}</td>
+			<td>${users.gender}</td>
+			<td>${users.contactNumber}</td>
+			<td>${users.dob}</td>
+			<td>${users.address}</td>
+			<td>${users.city}</td>
+			<td>${users.state}</td>
+			<td>${users.roleId}</td>
 		</tr>
 		</c:forEach>
 	

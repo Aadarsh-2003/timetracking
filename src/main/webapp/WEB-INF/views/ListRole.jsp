@@ -14,12 +14,14 @@
 	
 	<table border="1" align="center" >
 		<tr>
+			<th>Role Id</th>
 			<th>Role Name</th>
 		</tr>
 		
 		<c:forEach items="${r}" var="role" >
 		<tr>
-			<th>${role.roleName}</th>
+			<td>${role.roleId}</td>
+			<td>${role.roleName}</td>
 		</tr>
 		
 		</c:forEach>

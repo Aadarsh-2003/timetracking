@@ -15,14 +15,14 @@
 	<table border="1" align="center" >
 		<tr>
 			<th>userId</th>
-			<th>taskId</th>
+			<th>projectId</th>
 			<th>assignStatus</th>
 		</tr>
 		
 		<c:forEach items="${prusers}" var="prur" >
 			<tr>
 				<th>${prur.userId}</th>
-				<th>${prur.taskId}</th>
+				<th>${prur.projectId}</th>
 				<th>${prur.assignStatus}</th>
 			</tr>
 		

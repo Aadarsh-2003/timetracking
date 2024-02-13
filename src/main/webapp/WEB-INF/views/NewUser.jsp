@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,14 @@
 				<option value="mehsana" >Mehsana</option>
 			</select><br><br>
 	
-	roleId:<input type="text" name="roleId"><br><br>
+	roleId:<select name="roleId">
+				<option value="-1" >Select Role</option>
+				
+				<c:forEach items="${rl}" var="roles" >
+					<option value="${roles.roleId}" >${roles.roleName}</option>
+				</c:forEach>
+				
+			</select><br><br>
 	<input type="submit" value="Submit User" >
 	</form>
 </body>
