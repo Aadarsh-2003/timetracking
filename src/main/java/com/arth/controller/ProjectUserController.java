@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.arth.entity.ProjectEntity;
 import com.arth.entity.ProjectUserEntity;
@@ -51,6 +52,12 @@ public class ProjectUserController {
 		model.addAttribute("prusers", projectUsers);
 		return "ListProjectUser";
 	}
+	@GetMapping("deleteprojectuser")
+	public String deleteProjectUser(@RequestParam("id") Integer prUsr) {
+		prUserRepo.deleteById(prUsr);
+		return "redirect:/listprojectuser";
+	}
+	
 	
 	
 	

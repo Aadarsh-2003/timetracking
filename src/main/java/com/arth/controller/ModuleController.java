@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.arth.entity.ModuleEntity;
 import com.arth.entity.ProjectEntity;
@@ -53,6 +54,12 @@ public class ModuleController {
 		model.addAttribute("m", modules);
 		return"ListModule";
 	}
+	@GetMapping("/deletemodule")
+	public String deleteModule(@RequestParam("id") Integer moduleId) {
+		moduleRepo.deleteById(moduleId);
+		return"redirect:/listmodule";
+	}
+	
 	
 	
 	

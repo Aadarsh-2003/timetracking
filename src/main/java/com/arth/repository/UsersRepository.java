@@ -7,5 +7,9 @@ import com.arth.entity.UsersEntity;
 
 @Repository
 public interface UsersRepository extends JpaRepository<UsersEntity, Integer>{
+	
+	UsersEntity findByEmailAndPassword(String email,String password);
+	
+	UsersEntity findByEmail(String email);
 
 }

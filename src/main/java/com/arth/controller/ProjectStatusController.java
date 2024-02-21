@@ -46,6 +46,12 @@ public class ProjectStatusController {
 		model.addAttribute("prsts", projectStatus);
 		return "ListProjectStatus" ;
 	}
+	@GetMapping("/deleteprojectstatus")
+	public String deleteProjectStatus(@RequestParam("id") Integer prSts) {
+		statusRepo.deleteById(prSts);
+		return "redirect:/listprojectstatus";
+	}
+	
 	
 	
 

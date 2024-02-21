@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.arth.entity.RoleEntity;
 import com.arth.repository.RoleRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -43,6 +45,12 @@ public class RoleController {
 		model.addAttribute("r", roles);
 		return "ListRole" ;
 	}
+	@GetMapping("/deleterole")
+	public String deleteRole(@RequestParam("id") Integer rolId) {
+		roleRepo.deleteById(rolId);
+		return"redirect:/listrole"; 
+	}
+	
 	
 
 }

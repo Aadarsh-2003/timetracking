@@ -11,6 +11,8 @@ import com.arth.entity.ProjectEntity;
 import com.arth.entity.ProjectStatusEntity;
 import com.arth.repository.ProjectRepository;
 import com.arth.repository.ProjectStatusRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class ProjectController {
@@ -46,5 +48,11 @@ public class ProjectController {
 		model.addAttribute("pr", projects);
 		return "ListProject";
 	}
+	@GetMapping("/deleteproject")
+	public String deleteProject(@RequestParam("id") Integer projId) {
+		prRepo.deleteById(projId);
+		return "redirect:/listproject";
+	}
+	
 
 }

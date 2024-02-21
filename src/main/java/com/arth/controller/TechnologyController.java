@@ -45,6 +45,11 @@ public class TechnologyController {
 		
 		return "ListTechnology";
 	}
+	@GetMapping("/deletetechnology")
+	public String getMethodName(@RequestParam("id") Integer techId) {
+		techRepo.deleteById(techId);
+		return "redirect:/listtechnology";
+	}
 	
 	
 	

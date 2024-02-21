@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "Users")
@@ -16,6 +17,8 @@ public class UsersEntity {
 	private String lastName;
 	private String email;
 	private String password;
+	@Transient
+	private String confirmPassword;
 	private String gender;
 	private String contactNumber;
 	private String dob;
@@ -63,6 +66,14 @@ public class UsersEntity {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public String getGender() {

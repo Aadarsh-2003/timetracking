@@ -53,6 +53,12 @@ public class UsersController {
 		model.addAttribute("ur", users);
 		return "ListUser";
 	}
+	@GetMapping("/deleteuser")
+	public String deleteUser(@RequestParam("id") Integer dlUsr) {
+		userRepo.deleteById(dlUsr);
+		return "redirect:/listuser";
+	}
+	
 	
 	
 	

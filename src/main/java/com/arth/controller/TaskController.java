@@ -16,6 +16,8 @@ import com.arth.repository.ModuleRepository;
 import com.arth.repository.ProjectRepository;
 import com.arth.repository.ProjectStatusRepository;
 import com.arth.repository.TaskRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class TaskController {
@@ -61,6 +63,12 @@ public class TaskController {
 		
 		return "ListTask";
 	}
+	@GetMapping("/deletetask")
+	public String deleteTask(@RequestParam("id") Integer tskId) {
+		taskRepo.deleteById(tskId);
+		return "redirect:/listtask";
+	}
+	
 	
 	
 	
