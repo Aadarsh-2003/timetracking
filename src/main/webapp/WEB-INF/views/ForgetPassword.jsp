@@ -79,12 +79,11 @@
                               
                               <h4 class="logo-title ms-3">Time Tracking</h4>
                            </a>
-                           <h2 class="mb-2 text-center">Login</h2>
-                           <p class="text-center">Log into your account.</p>
+                           <h2 class="mb-2 text-center">Recover</h2>
+                           <p class="text-center">Enter email to recover password</p>
                            
-                           <span style="color:red;" >${Error}</span>
-                           <span style="color:red;" >${Er}</span> 
-                           <form action="/authentication" method="post" >
+                            
+                           <form action="/sendotpforrecoverpassword" method="post" >
                               <div class="row">
                                  
                                  
@@ -96,30 +95,12 @@
                                     </div>
                                  </div>
                                  
-                                 <div class="col-lg-6">
-                                    <div class="form-group">
-                                       <label for="password" class="form-label">Password</label>
-                                       <input type="password" class="form-control" id="password" name="password" placeholder=" ">
-                                    </div>
-                                 </div>
-                                 
-                                 
-                                 
-                                 
-                                 
-                                 
                               </div>
                               <div class="d-flex justify-content-center">
-                                 <button type="submit" class="btn btn-primary">Login </button>
+                                 <button type="submit" class="btn btn-primary">Recover</button>
                                  &nbsp;&nbsp;
-                                 <button type="button" class="btn btn-primary bg-danger">Cancel</button>
+                                 <a href="/login" class="btn btn-primary bg-danger">cancel</a>
                               </div>
-                              
-                             
-                              <p class="mt-3 text-center">
-                                 Don't have an Account <a href="/signup" class="text-underline">Sign up</a>
-                              </p>
-                              <a href="/forgetpassword" class="text-underline">Forget Password?</a>
                            </form>
                         </div>
                      </div>    
