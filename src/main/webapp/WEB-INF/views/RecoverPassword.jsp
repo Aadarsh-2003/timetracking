@@ -108,7 +108,7 @@
 									<p class="text-center">Enter following Details</p>
 
 									<span style="color:red;" >${otpEmailError}</span>
-									<span style="color:green;" >${msg}</span>
+									
 									<form action="/recoverpassword" method="post">
 										<div class="row">
 

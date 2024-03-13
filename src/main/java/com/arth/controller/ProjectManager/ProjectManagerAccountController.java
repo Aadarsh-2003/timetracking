@@ -1,4 +1,4 @@
-package com.arth.controller;
+package com.arth.controller.ProjectManager;
 
 import java.util.List;
 
@@ -17,10 +17,7 @@ import com.arth.repository.ProjectUserRepository;
 import com.arth.repository.UsersRepository;
 
 @Controller
-public class ProjectUserController {
-	
-	@Autowired
-	ProjectUserRepository prUserRepo;
+public class ProjectManagerAccountController {
 	
 	@Autowired
 	ProjectRepository prRepo;
@@ -28,8 +25,11 @@ public class ProjectUserController {
 	@Autowired
 	UsersRepository urRepo;
 	
-	@GetMapping("/newprojectuser")
-	public String newProjectUser(Model model) {
+	@Autowired
+	ProjectUserRepository prUserRepo;
+	
+	@GetMapping("/pmassignprojectuser")
+	public String pmAssignProjectUser(Model model) {
 		
 		List<ProjectEntity> projects = prRepo.findAll();
 		model.addAttribute("prj", projects);
@@ -37,43 +37,27 @@ public class ProjectUserController {
 		List<UsersEntity> userId = urRepo.findAll();
 		model.addAttribute("usrs", userId);
 		
-		return"NewProjectUser";
+		return"PMAssignProjectUser";
 	}
-	@PostMapping("/saveprojectuser")
-	public String saveProjectUser(ProjectUserEntity projectUserEntity) {
+	
+	@PostMapping("/pmsaveprojectuser")
+	public String pmSaveProjectUser(ProjectUserEntity projectUserEntity) {
 		
+		projectUserEntity.setAssignStatus(1);
 		System.out.println(projectUserEntity.getUserId());
 		prUserRepo.save(projectUserEntity);
-		return "redirect:/listprojectuser";
+		return "redirect:/pmlistprojectuser";
 	}
-	@GetMapping("/listprojectuser")
-	public String listProjectUser(Model model) {
+	@GetMapping("/pmlistprojectuser")
+	public String pmListProjectUser(Model model) {
 		List<ProjectUserEntity> projectUsers = prUserRepo.findAll();
 		model.addAttribute("prusers", projectUsers);
 		
-		
-		
-		return "ListProjectUser";
+		return "PMListProjectUser";
 	}
-	@GetMapping("deleteprojectuser")
-	public String deleteProjectUser(@RequestParam("id") Integer prUsr) {
+	@GetMapping("/revokeassignedprojectuser")
+	public String revokeAssignedProjectUser(@RequestParam("id") Integer prUsr) {
 		prUserRepo.deleteById(prUsr);
-		return "redirect:/listprojectuser";
+		return "redirect:/pmlistprojectuser";
 	}
-	
-	@GetMapping("/listassignedprojectuser")
-	public String listAssignedProjectUser(Model model,@RequestParam("projectId") Integer projectId) {
-		
-		
-		model.addAttribute("prj", prRepo.findById(projectId).get());
-		model.addAttribute("userss",urRepo.getUsersByProjectId(projectId));
-		
-		return "ListAssignedProjectUser";
-	}
-	
-		
-	
-	
-	
-
 }

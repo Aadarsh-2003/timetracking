@@ -786,13 +786,13 @@
       </div>    </div>
     <!-- loader END -->
     
-    <jsp:include page="AdminSidebar.jsp"></jsp:include>
+    <jsp:include page="ProjectManagerSidebar.jsp"></jsp:include>
     
         <main class="main-content">
       <div class="position-relative iq-banner">
         <!--Nav Start-->
         
-        <jsp:include page="AdminNavbar.jsp"></jsp:include>
+        <jsp:include page="ProjectManagerNavbar.jsp"></jsp:include>
                  <!-- Nav Header Component Start -->
           <div class="iq-navbar-header" style="height: 215px;">
               <div class="container-fluid iq-container">
@@ -800,7 +800,7 @@
                       <div class="col-md-12">
                           <div class="flex-wrap d-flex justify-content-between align-items-center">
                               <div>
-                                  <h1>Hey Admin!</h1>
+                                  <h1>Hey Project Manager!</h1>
                                   
                               </div>
                               <div>
@@ -828,26 +828,29 @@
          				<div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" align="center" >
 							
 							
-							<h2 style="padding-top: 25px" >List Technology</h2>
+							<h2 style="padding-top: 25px" >List Project Users</h2>
 
-	<span style="color:black;" >${tech.size()}</span> 
+	<span style="color:black;" >${prusers.size()} </span>
 	
 	<table border="1" align="center" class="table table-striped table-bordered dataTable" >
 		<tr>
-			<th>Technology Id</th>
-			<th>Technology Title</th>
+			<th>Project user Id</th>
+			<th>userId</th>
+			<th>projectId</th>
+			<th>assignStatus</th>
 			<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${tech}" var="itm">
-		<tr>
-			<td>${itm.technologyId}</td>
-			<td>${itm.title}</td>
-			<td><a href="deletetechnology?id=${itm.technologyId}" >Delete</a></td>
-		</tr>
+		<c:forEach items="${prusers}" var="prur" >
+			<tr>
+				<td>${prur.projectUserId}</td>
+				<td>${prur.userId}</td>
+				<td>${prur.projectId}</td>
+				<td>${prur.assignStatus}</td>
+				<td><a href="revokeassignedprojectuser?id=${prur.projectUserId}" >Revoke</a></td>
+			</tr>
+		
 		</c:forEach>
-		
-		
 	
 	</table>
 							

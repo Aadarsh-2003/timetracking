@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Hope UI | Responsive Bootstrap 5 Admin Dashboard Template</title>
       
+      <%@include file="LoginCheck.jsp" %>
+      
       <!-- Favicon -->
       <link rel="shortcut icon" href="../assets/images/favicon.ico">
       
@@ -784,7 +786,7 @@
       </div>    </div>
     <!-- loader END -->
     
-    <jsp:include page="MasterSidebar.jsp"></jsp:include>
+    <jsp:include page="DeveloperSidebar.jsp"></jsp:include>
     
         <main class="main-content">
       <div class="position-relative iq-banner">

@@ -13,6 +13,8 @@ import com.arth.entity.UsersEntity;
 import com.arth.repository.UsersRepository;
 import com.arth.service.MailerService;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,7 +32,7 @@ public class SessionController {
 
 	@GetMapping("/") // url used for accessing
 	public String welcome() {
-		return "Welcome"; // jsp file name
+		return "Login"; // jsp file name
 	}
 
 	@GetMapping("/signup") // url used for accessing
@@ -69,9 +71,11 @@ public class SessionController {
 	}
 
 	@PostMapping("/authentication")
-	public String authentication(UsersEntity user, Model model) {
+	public String authentication(UsersEntity user, Model model , HttpSession session) {
 
 		UsersEntity loggedInUser = urRepo.findByEmail(user.getEmail());
+		session.setAttribute("usrName", loggedInUser);
+		session.setMaxInactiveInterval(60*30);
 
 		if (loggedInUser == null) {
 			model.addAttribute("Error", "Invalid Credentials");
@@ -153,12 +157,19 @@ public class SessionController {
 				dbUser.setOtp(-1);
 				urRepo.save(dbUser);
 				model.addAttribute("msg", "Password Updated Successfully");
-				return "RecoverPassword";
+				return "Login";
 			}
 		}
-
 		
-
+		}
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();
+		return"redirect:/login";
+	}
+	
 	}
 
-}
+
+

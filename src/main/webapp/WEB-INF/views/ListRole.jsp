@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Hope UI | Responsive Bootstrap 5 Admin Dashboard Template</title>
       
+      <%@include file="LoginCheck.jsp" %>
+      
       <!-- Favicon -->
       <link rel="shortcut icon" href="../assets/images/favicon.ico">
       
@@ -830,7 +832,7 @@
 
 	<span style="color:black;" >${r.size()}</span> 
 	
-	<table border="1" align="center" >
+	<table border="1" align="center" class="table table-striped table-bordered dataTable" >
 		<tr>
 			<th>Role Id</th>
 			<th>Role Name</th>

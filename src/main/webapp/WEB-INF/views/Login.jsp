@@ -84,6 +84,7 @@
                            
                            <span style="color:red;" >${Error}</span>
                            <span style="color:red;" >${Er}</span> 
+                           <span style="color:green;" >${msg}</span>
                            <form action="/authentication" method="post" >
                               <div class="row">
                                  

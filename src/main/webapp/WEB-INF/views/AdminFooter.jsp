@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+				<c:if test="${empty usrName }">
+                	<c:redirect url="login"/>
+                </c:if>
 <footer class="footer">
           <div class="footer-body">
               <ul class="left-panel list-inline mb-0 p-0">

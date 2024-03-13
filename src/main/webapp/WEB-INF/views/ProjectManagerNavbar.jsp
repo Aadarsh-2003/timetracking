@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:if test="${empty usrName }">
+                	<c:redirect url="login"/>
+                </c:if>
 
 
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">

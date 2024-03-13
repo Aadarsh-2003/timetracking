@@ -5,7 +5,9 @@
 <html lang="en" dir="ltr"><head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Hope UI | Responsive Bootstrap 5 Admin Dashboard Template</title>
+      <title>Time Tracking | Project Manager</title>
+      
+      <%@include file="LoginCheck.jsp" %>
       
       <!-- Favicon -->
       <link rel="shortcut icon" href="../assets/images/favicon.ico">
@@ -784,13 +786,13 @@
       </div>    </div>
     <!-- loader END -->
     
-    <jsp:include page="MasterSidebar.jsp"></jsp:include>
+    <jsp:include page="ProjectManagerSidebar.jsp"></jsp:include>
     
         <main class="main-content">
       <div class="position-relative iq-banner">
         <!--Nav Start-->
         
-        <jsp:include page="AdminNavbar.jsp"></jsp:include>
+        <jsp:include page="ProjectManagerNavbar.jsp"></jsp:include>
                  <!-- Nav Header Component Start -->
           <div class="iq-navbar-header" style="height: 215px;">
               <div class="container-fluid iq-container">

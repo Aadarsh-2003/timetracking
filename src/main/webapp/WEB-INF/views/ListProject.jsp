@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Hope UI | Responsive Bootstrap 5 Admin Dashboard Template</title>
       
+      <%@include file="LoginCheck.jsp" %>
+      
       <!-- Favicon -->
       <link rel="shortcut icon" href="../assets/images/favicon.ico">
       
@@ -830,7 +832,7 @@
 
 	<span style="color:black;" >${pr.size() }</span>
 
-	<table border="1" align="center">
+	<table border="1" align="center" class="table table-striped table-bordered dataTable">
 		<tr>
 			<th>Project Id</th>
 			<th>ProjectTitle</th>
@@ -855,7 +857,10 @@
 				<td>${prj.totalUtilizedHours}</td>
 				<td>${prj.projectStartDate}</td>
 				<td>${prj.projectCompletionDate}</td>
-				<td><a href="deleteproject?id=${prj.projectId}" >Delete</a></td>
+				<td><a href="deleteproject?id=${prj.projectId}" >Delete</a>|
+					<a href="listassignedprojectuser?projectId=${prj.projectId}" >View Users</a>|
+					<a href="" >Modules</a>
+				</td>
 			</tr>
 		</c:forEach>
 

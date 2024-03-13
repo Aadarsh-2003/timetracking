@@ -17,5 +17,10 @@ public class AdminDashboardController {
 		return "MasterPage";
 	}
 	
+	@GetMapping("/inputform")
+	public String inputForm() {
+		return "InputForm";
+	}
+	
 
 }

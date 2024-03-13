@@ -828,26 +828,30 @@
          				<div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" align="center" >
 							
 							
-							<h2 style="padding-top: 25px" >List Technology</h2>
+							<h2 style="padding-top: 25px" >List ${prj.projectTitle}'s Assigned User</h2>
 
-	<span style="color:black;" >${tech.size()}</span> 
+	<span style="color:black;" >${userss.size()}</span> 
 	
-	<table border="1" align="center" class="table table-striped table-bordered dataTable" >
+	<table border="1" align="center"  >
 		<tr>
-			<th>Technology Id</th>
-			<th>Technology Title</th>
+			
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Email</th>
+			<th>roleId</th>
 			<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${tech}" var="itm">
+		<c:forEach items="${userss}" var="users">
 		<tr>
-			<td>${itm.technologyId}</td>
-			<td>${itm.title}</td>
-			<td><a href="deletetechnology?id=${itm.technologyId}" >Delete</a></td>
+			
+			<td>${users.firstName}</td>
+			<td>${users.lastName}</td>
+			<td>${users.email}</td>
+			<td>${users.roleId}</td>
+			<td><a href="/" >Revoke</a></td>
 		</tr>
 		</c:forEach>
-		
-		
 	
 	</table>
 							

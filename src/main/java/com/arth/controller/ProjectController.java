@@ -11,6 +11,8 @@ import com.arth.entity.ProjectEntity;
 import com.arth.entity.ProjectStatusEntity;
 import com.arth.repository.ProjectRepository;
 import com.arth.repository.ProjectStatusRepository;
+import com.arth.repository.UsersRepository;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -22,6 +24,9 @@ public class ProjectController {
 
 	@Autowired
 	ProjectStatusRepository prStsRepo;
+	
+	@Autowired
+	UsersRepository urRepo;
 
 	@GetMapping("/newproject")
 	public String newProject(Model model) {
@@ -44,8 +49,10 @@ public class ProjectController {
 	@GetMapping("/listproject")
 	public String listProject(Model model) {
 		List<ProjectEntity> projects = prRepo.findAll();
-
 		model.addAttribute("pr", projects);
+		
+		
+		
 		return "ListProject";
 	}
 	@GetMapping("/deleteproject")

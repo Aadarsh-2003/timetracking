@@ -1,5 +1,4 @@
 
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -1549,7 +1548,7 @@ rotate(
 	</div>
 	<!-- loader END -->
 
-	<%@include file="AdminSidebar.jsp" %>
+	<%@include file="ProjectManagerSidebar.jsp" %>
 
 
 	<main class="main-content">
@@ -1557,7 +1556,7 @@ rotate(
 			<!--Nav Start-->
 
 
-			<%@include file="AdminNavbar.jsp"%>
+			<%@include file="ProjectManagerNavbar.jsp"%>
 			<!-- Nav Header Component Start -->
 			<div class="iq-navbar-header" style="height: 215px;">
 				<div class="container-fluid iq-container">
@@ -1566,7 +1565,7 @@ rotate(
 							<div
 								class="flex-wrap d-flex justify-content-between align-items-center">
 								<div>
-									<h1>Hey Admin!</h1>
+									<h1>Hey Project Manager !</h1>
 									<p>We are on a mission to help developers like you build
 										successful projects for FREE.</p>
 								</div>
@@ -1625,17 +1624,17 @@ rotate(
 				
 				
 				
-			<div class="col-sm-12 col-lg-6">
+				<div class="col-sm-12 col-lg-6">
 					<div class="card">
 						<div class="card-header d-flex justify-content-between">
 							<div class="header-title">
-								<h4 class="card-title">New Task</h4>
+								<h4 class="card-title">Assign Project User</h4>
 							</div>
 						</div>
 						<div class="card-body">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Morbi vulputate, ex ac venenatis mollis, diam nibh finibus leo</p>
-							<form action="/savemodule" method="post" class="form-horizontal">
+							<form action="/" method="post" class="form-horizontal">
 								<div class="form-group row">
 									<label class="control-label col-sm-3 align-self-center mb-0"
 										for="email1">Module Name:</label>
@@ -1720,34 +1719,41 @@ rotate(
 				
 				
 				
-				<h2>New Task</h2>
+				
+				<h2>Assign Project User</h2>
 
-	<form action="/savetask" method="post">
-	moduleId:<select name="moduleId" >
-			 	<option value="-1" >--Select Module--</option>
-			 	<c:forEach items="${mdId}" var="moduId" >
-			 		<option value="${moduId.moduleId}" >${moduId.moduleName}</option>
-			 	</c:forEach>
-			 </select><br><br>
-	projectId:<select name="projectId" >
-			 	<option value="-1" >--Select Project--</option>
-			 	<c:forEach items="${prId}" var="proId" >
-			 		<option value="${proId.projectId}" >${proId.projectTitle}</option>
-			 	</c:forEach>
-			 </select><br><br>
-	status:<select name="status" >
-			 	<option value="-1" >--Select Status--</option>
-			 	<c:forEach items="${prStatus}" var="proSts" >
-			 		<option value="${proSts.projectStatusId}" >${proSts.status}</option>
-			 	</c:forEach>
-			 </select><br><br>
-	estimatedHours:<input type="text" name="estimatedHours" ><br><br>
-	totalUtilizedHours:<input type="text" name="totalUtilizedHours" ><br><br>
-	docURL:<input type="text" name="docURL" ><br><br>
-	description:<input type="text" name="description" ><br><br>
-	title:<input type="text" name="title" ><br><br>
+	<form action="/pmsaveprojectuser" method="post" >
+	userId:
+			<select name="userId" >
+					<option value="-1" >--Select User--</option>
+					<c:forEach items="${usrs}" var="ursrr" >
+						<option value="${ursrr.userId}" >${ursrr.firstName} : ${ursrr.email}</option>
+					
+					</c:forEach>
+				
+				</select>
+	<br><br>
+	projectId:
+				<select name="projectId" >
+					<option value="-1" >--Select Project--</option>
+					<c:forEach items="${prj}" var="prjct" >
+						<option value="${prjct.projectId}" >${prjct.projectTitle}</option>
+					
+					</c:forEach>
+				
+				</select>
 	
-	<input type="submit" value="Submit Task" >
+	<br><br>
+	<!--  
+	assignStatus:
+				<select name="assignStatus" >
+					<option value="-1" >--Select Status--</option>
+					<option value="1" >Assign</option>
+					<option value="2" >Revoke</option>
+				</select>
+	<br><br> -->
+	<input type="submit" value="Submit ProjectUser" >
+	
 	</form>
 				
 				

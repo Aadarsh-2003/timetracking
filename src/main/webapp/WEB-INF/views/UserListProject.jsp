@@ -786,7 +786,7 @@
       </div>    </div>
     <!-- loader END -->
     
-    <jsp:include page="AdminSidebar.jsp"></jsp:include>
+    <jsp:include page="DeveloperSidebar.jsp"></jsp:include>
     
         <main class="main-content">
       <div class="position-relative iq-banner">
@@ -800,7 +800,7 @@
                       <div class="col-md-12">
                           <div class="flex-wrap d-flex justify-content-between align-items-center">
                               <div>
-                                  <h1>Hey Admin!</h1>
+                                  <h1>Hey Developer !</h1>
                                   
                               </div>
                               <div>
@@ -828,27 +828,46 @@
          				<div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" align="center" >
 							
 							
-							<h2 style="padding-top: 25px" >List Technology</h2>
+							<h2 style="padding-top: 25px" >List Project</h2>
 
-	<span style="color:black;" >${tech.size()}</span> 
+	<span style="color:black;" >${prjct.size() }</span>
 	
-	<table border="1" align="center" class="table table-striped table-bordered dataTable" >
+	 
+
+	<table border="1" align="center" class="table table-striped table-bordered dataTable">
 		<tr>
-			<th>Technology Id</th>
-			<th>Technology Title</th>
+			<th>Project Id</th> 
+			<th>ProjectTitle</th>
+			<th>Description</th>
+			<th>projectStatusId</th>
+			<th>DocURL</th>
+			<th>EstimatedHours</th>
+			<th>TotalUtilizedHours</th>
+			<th>ProjectStartDate</th>
+			<th>ProjectCompletionDate</th>
 			<th>Action</th>
 		</tr>
+
+		<c:forEach items="${prjct}" var="projects"> <!-- -->
 		
-		<c:forEach items="${tech}" var="itm">
-		<tr>
-			<td>${itm.technologyId}</td>
-			<td>${itm.title}</td>
-			<td><a href="deletetechnology?id=${itm.technologyId}" >Delete</a></td>
-		</tr>
+			<tr>
+				<td>${projects.projectId}</td>
+				<td>${projects.projectTitle}</td>
+				<td>${projects.description}</td>
+				<td>${projects.projectStatusId}</td>
+				<td>${projects.docURL}</td>
+				<td>${projects.estimatedHours}</td>
+				<td>${projects.totalUtilizedHours}</td>
+				<td>${projects.projectStartDate}</td>
+				<td>${projects.projectCompletionDate}</td>
+				<td><a href="deleteproject?id=${projectsj.projectId}" >Delete</a>|
+					<a href="listassignedprojectuser?projectId=${projects.projectId}" >View Users</a>|
+					<a href="" >Modules</a>
+				</td>
+			</tr>
+			
 		</c:forEach>
-		
-		
-	
+
 	</table>
 							
          				</div>

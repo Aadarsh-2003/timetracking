@@ -5,7 +5,7 @@
 <html lang="en" dir="ltr"><head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Hope UI | Responsive Bootstrap 5 Admin Dashboard Template</title>
+      <title>Time Tracking</title>
       
       <!-- Favicon -->
       <link rel="shortcut icon" href="../assets/images/favicon.ico">
@@ -825,6 +825,7 @@
       <div class="row row-cols-1">
          <div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
             
+            CONTENT GOES HERE
             
             
          </div>
@@ -846,7 +847,7 @@
       </div>
       
       
-      CONTENT GOES HERE
+      
       
       
       <div class="btn-download">
