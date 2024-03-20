@@ -83,7 +83,7 @@ public class SessionController {
 		} else if (encodePass.matches(user.getPassword(), loggedInUser.getPassword())) {
 
 			if (loggedInUser.getRoleId() == 1) {
-				return "AdminDashboard";
+				return "redirect:/admindashboard";
 			} else if (loggedInUser.getRoleId() == 3) {
 				return "DeveloperDashboard";
 			} else if (loggedInUser.getRoleId() == 5) {

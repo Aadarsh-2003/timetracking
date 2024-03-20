@@ -1736,8 +1736,8 @@ rotate(
 						</c:forEach>
 					</select>
 	<br><br>
-	ProjectStartDate:<input type="text" name="projectStartDate" ><br><br>
-	ProjectCompletionDate:<input type="text" name="projectCompletionDate" ><br><br>
+	ProjectStartDate:<input type="date" name="projectStartDate" ><br><br>
+	ProjectCompletionDate:<input type="date" name="projectCompletionDate" ><br><br>
 	DocURL:<input type="text" name="docURL" ><br><br>
 	EstimatedHours:<input type="text" name="estimatedHours" ><br><br>
 	TotalUtilizedHours:<input type="text" name="totalUtilizedHours" ><br><br>

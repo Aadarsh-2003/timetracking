@@ -828,42 +828,42 @@
          				<div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" align="center" >
 							
 							
-							<h2 style="padding-top: 25px" >List Project</h2>
+							<h2 style="padding-top: 25px" >Project:${prj.projectTitle} | Module:${modl.moduleName} | Tasks</h2>
 
-	<span style="color:black;" >${pr.size() }</span>
-
+	<span style="color:black;" >${tsk.size()}</span> 
+	
 	<table border="1" align="center" class="table table-striped table-bordered dataTable">
 		<tr>
-			<th>Project Id</th>
-			<th>ProjectTitle</th>
-			<th>Description</th>
-			<th>projectStatusId</th>
-			<th>DocURL</th>
-			<th>EstimatedHours</th>
-			<th>TotalUtilizedHours</th>
-			<th>ProjectStartDate</th>
-			<th>ProjectCompletionDate</th>
+			<th>Task Id</th>
+			<th>moduleId</th>
+			<th>projectId</th>
+			<th>status</th>
+			<th>estimatedHours</th>
+			<th>totalUtilizedHours</th>
+			<th>docURL</th>
+			<th>description</th>
+			<th>title</th>
 			<th>Action</th>
 		</tr>
-
-		<c:forEach items="${pr}" var="prj">
-			<tr>
-				<td>${prj.projectId}</td>
-				<td>${prj.projectTitle}</td>
-				<td>${prj.description}</td>
-				<td>${prj.projectStatusId}</td>
-				<td>${prj.docURL}</td>
-				<td>${prj.estimatedHours}</td>
-				<td>${prj.totalUtilizedHours}</td>
-				<td>${prj.projectStartDate}</td>
-				<td>${prj.projectCompletionDate}</td>
-				<td><a href="deleteproject?id=${prj.projectId}" >Delete</a>|
-					<a href="listassignedprojectuser?projectId=${prj.projectId}" >View Users</a>|
-					<a href="/listassignedprojectmodules?projectId=${prj.projectId}" >Modules</a>
-				</td>
-			</tr>
+		
+		<c:forEach items="${tsk}" var="tasks" >
+		
+		<tr>
+			<td>${tasks.taskId}</td>
+			<td>${tasks.moduleId}</td>
+			<td>${tasks.projectId}</td>
+			<td>${tasks.status}</td>
+			<td>${tasks.estimatedHours}</td>
+			<td>${tasks.totalUtilizedHours}</td>
+			<td>${tasks.docURL}</td>
+			<td>${tasks.description}</td>
+			<td>${tasks.title}</td>
+			<td><a href="deletetask?id=${tasks.taskId}" >Delete</a>|
+				<a href="listassignedtaskuser?projectId=${prj.projectId}&moduleId=${modl.moduleId}&taskId=${tasks.taskId}" >Users</a></td>
+		</tr>
+		
 		</c:forEach>
-
+	
 	</table>
 							
          				</div>

@@ -828,39 +828,38 @@
          				<div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" align="center" >
 							
 							
-							<h2 style="padding-top: 25px" >List Project</h2>
+							<h2 style="padding-top: 25px" >Project:${prj.projectTitle} | Modules</h2>
 
-	<span style="color:black;" >${pr.size() }</span>
-
-	<table border="1" align="center" class="table table-striped table-bordered dataTable">
+	<span style="color:black;" >${modules.size()}</span> 
+	
+	<table border="1"  align="center" class="table table-striped table-bordered dataTable">
 		<tr>
-			<th>Project Id</th>
-			<th>ProjectTitle</th>
-			<th>Description</th>
-			<th>projectStatusId</th>
-			<th>DocURL</th>
-			<th>EstimatedHours</th>
-			<th>TotalUtilizedHours</th>
-			<th>ProjectStartDate</th>
-			<th>ProjectCompletionDate</th>
+			<th>module Id</th>
+			<th>moduleName</th>
+			<th>projectId</th>
+			<th>status</th>
+			<th>description</th>
+			<th>docURL</th>
+			<th>estimatedHours</th>
+			<th>totalUtilizedHours</th>
 			<th>Action</th>
+			
 		</tr>
 
-		<c:forEach items="${pr}" var="prj">
+		<c:forEach items="${modules}" var="modu">
 			<tr>
-				<td>${prj.projectId}</td>
-				<td>${prj.projectTitle}</td>
-				<td>${prj.description}</td>
-				<td>${prj.projectStatusId}</td>
-				<td>${prj.docURL}</td>
-				<td>${prj.estimatedHours}</td>
-				<td>${prj.totalUtilizedHours}</td>
-				<td>${prj.projectStartDate}</td>
-				<td>${prj.projectCompletionDate}</td>
-				<td><a href="deleteproject?id=${prj.projectId}" >Delete</a>|
-					<a href="listassignedprojectuser?projectId=${prj.projectId}" >View Users</a>|
-					<a href="/listassignedprojectmodules?projectId=${prj.projectId}" >Modules</a>
-				</td>
+				<td>${modu.moduleId}</td>
+				<td>${modu.moduleName}</td>
+				<td>${modu.projectId}</td>
+				<td>${modu.status}</td>
+				<td>${modu.description}</td>
+				<td>${modu.docURL}</td>
+				<td>${modu.estimatedHours}</td>
+				<td>${modu.totalUtilizedHours}</td>
+				<td><a href="deletemodule?id=${ modu.moduleId}" >Delete</a>|
+					<!--  <a href="listassignedmoduleuser?moduleId=${modu.moduleId}" >View Users</a>| -->
+					<a href="listassignedmoduletasks?projectId=${prj.projectId}&moduleId=${modu.moduleId}" >Tasks</a></td>
+				
 			</tr>
 		</c:forEach>
 

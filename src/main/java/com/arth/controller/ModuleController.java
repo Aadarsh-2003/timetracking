@@ -16,6 +16,7 @@ import com.arth.entity.ProjectStatusEntity;
 import com.arth.repository.ModuleRepository;
 import com.arth.repository.ProjectRepository;
 import com.arth.repository.ProjectStatusRepository;
+import com.arth.repository.UsersRepository;
 
 
 @Controller
@@ -29,6 +30,9 @@ public class ModuleController {
 	
 	@Autowired
 	ProjectStatusRepository prStsRepo; //for project status
+	
+	@Autowired
+	UsersRepository urRepo;
 	
 	@GetMapping("/newmodule")
 	public String newModule(Model model) {
@@ -58,6 +62,25 @@ public class ModuleController {
 	public String deleteModule(@RequestParam("id") Integer moduleId) {
 		moduleRepo.deleteById(moduleId);
 		return"redirect:/listmodule";
+	}
+	@GetMapping("/listassignedprojectmodules")
+	public String listAssignedProjectModules(Model model,@RequestParam("projectId") Integer projectId) {
+		
+		
+		model.addAttribute("prj", prRepo.findById(projectId).get());
+		//  model.addAttribute("modl", moduleRepo.findById(moduleId).get()); 
+		model.addAttribute("modules",moduleRepo.getModuleByProjectId(projectId));
+		
+		return "ListAssignedProjectModules";
+	}
+	@GetMapping("/listassignedmoduleuser")
+	public String listAssignedModuleUser(Model model,@RequestParam("moduleId") Integer moduleId) {
+		
+		
+		model.addAttribute("modl", prRepo.findById(moduleId).get());
+		model.addAttribute("userss",urRepo.getUsersByModuleId(moduleId));
+		
+		return "ListAssignedModuleUser";
 	}
 	
 	

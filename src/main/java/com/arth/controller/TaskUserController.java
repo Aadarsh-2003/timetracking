@@ -13,6 +13,8 @@ import com.arth.entity.ProjectStatusEntity;
 import com.arth.entity.TaskEntity;
 import com.arth.entity.TaskUserEntity;
 import com.arth.entity.UsersEntity;
+import com.arth.repository.ModuleRepository;
+import com.arth.repository.ProjectRepository;
 import com.arth.repository.ProjectStatusRepository;
 import com.arth.repository.TaskRepository;
 import com.arth.repository.TaskUserRepository;
@@ -20,6 +22,12 @@ import com.arth.repository.UsersRepository;
 
 @Controller
 public class TaskUserController {
+	
+	@Autowired
+	ProjectRepository prRepo;
+	
+	@Autowired
+	ModuleRepository moduleRepo;
 	
 	@Autowired
 	TaskUserRepository taskUserRepo;
@@ -65,6 +73,16 @@ public class TaskUserController {
 	public String deleteTaskUser(@RequestParam("id") Integer tskUsrId) {
 		taskUserRepo.deleteById(tskUsrId);
 		return "redirect:/listtaskuser";
+	}
+	@GetMapping("/listassignedtaskuser")
+	public String listAssignedTaskUser(Model model,@RequestParam("projectId") Integer projectId,@RequestParam("moduleId") Integer moduleId,@RequestParam("taskId") Integer taskId) {
+		
+		model.addAttribute("prj", prRepo.findById(projectId).get());
+		model.addAttribute("modl", moduleRepo.findById(moduleId).get());
+		model.addAttribute("tsk", taskRepo.findById(taskId).get());
+		model.addAttribute("userss",urRepo.getUsersByTaskId(taskId));
+		
+		return "ListAssignedTaskUser";
 	}
 	
 	

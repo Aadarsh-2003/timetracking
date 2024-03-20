@@ -68,7 +68,17 @@ public class TaskController {
 		taskRepo.deleteById(tskId);
 		return "redirect:/listtask";
 	}
-	
+	@GetMapping("/listassignedmoduletasks")
+	public String listAssignedProjectModules(Model model,@RequestParam("projectId") Integer projectId,@RequestParam("moduleId") Integer moduleId) {
+		
+		
+		model.addAttribute("prj", prRepo.findById(projectId).get());
+		model.addAttribute("modl", modRepo.findById(moduleId).get());
+		//  model.addAttribute("modl", moduleRepo.findById(moduleId).get()); 
+		model.addAttribute("tsk",taskRepo.getTaskByModuleId(moduleId));
+		
+		return "ListAssignedModuleTasks";
+	}
 	
 	
 	
